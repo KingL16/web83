@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng 8/3 - Ngày Quốc Tế Phụ Nữ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-pink: #ff6b9d;
+            --soft-pink: #ffe5ec;
+            --deep-pink: #c44569;
+            --gold: #d4af37;
+            --cream: #fff9f0;
+            --light-pink: #fff5f8;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--soft-pink) 50%, #ffd6e8 100%);
+            min-height: 100vh;
+        }
+
+        /* Floating Hearts Animation */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: var(--primary-pink);
+            animation: float-up 15s infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 50px 20px 30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: var(--deep-pink);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+            animation: title-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes title-glow {
+            0%, 100% {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            }
+            50% {
+                text-shadow: 2px 2px 20px rgba(255, 107, 157, 0.5);
+            }
+        }
+
+        .header-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            letter-spacing: 3px;
+        }
+
+        .flower-divider {
+            font-size: 2rem;
+            margin: 20px 0;
+            color: var(--primary-pink);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Main Card */
+        .main-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 107, 157, 0.2);
+            animation: card-appear 1s ease-out;
+        }
+
+        @keyframes card-appear {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Banner Section */
+        .banner {
+            background: linear-gradient(135deg, var(--primary-pink), var(--deep-pink));
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: '🌸';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: -50px;
+            left: -50px;
+        }
+
+        .banner::after {
+            content: '🌹';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            bottom: -50px;
+            right: -50px;
+        }
+
+        .banner-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .person-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Content Section */
+        .content {
+            padding: 50px;
+        }
+
+        /* Greeting Message */
+        .greeting-box {
+            background: linear-gradient(135deg, var(--cream), #fff);
+            border-left: 5px solid var(--gold);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .greeting-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #555;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: var(--primary-pink);
+            font-weight: 700;
+        }
+
+        /* Photo Gallery */
+        .gallery-section {
+            margin: 50px 0;
+        }
+
+        .gallery-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--deep-pink);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .gallery-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-pink), var(--gold));
+            margin: 15px auto 0;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .photo-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            animation: photo-fade 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .photo-card:nth-child(1) { animation-delay: 0.2s; }
+        .photo-card:nth-child(2) { animation-delay: 0.4s; }
+        .photo-card:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes photo-fade {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
+        }
+
+        .photo-wrapper {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-card:hover .photo-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .photo-caption {
+            background: linear-gradient(135deg, var(--primary-pink), var(--deep-pink));
+            padding: 15px;
+            text-align: center;
+            color: white;
+        }
+
+        .caption-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Wish Section */
+        .wish-section {
+            background: linear-gradient(135deg, var(--soft-pink), #fff);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.15);
+        }
+
+        .wish-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: var(--deep-pink);
+            margin-bottom: 25px;
+        }
+
+        .wish-flowers {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .wish-content {
+            font-size: 1.15rem;
+            line-height: 2.2;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .wish-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .wish-list li {
+            padding: 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .wish-icon {
+            font-size: 1.3rem;
+        }
+
+        /* Signature Section */
+        .signature-section {
+            text-align: right;
+            padding: 30px;
+            margin-top: 30px;
+            border-top: 2px dashed var(--soft-pink);
+        }
+
+        .signature-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--deep-pink);
+        }
+
+        .signature-date {
+            font-size: 0.95rem;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .footer-heart {
+            color: var(--primary-pink);
+            animation: heart-beat 1s ease-in-out infinite;
+        }
+
+        @keyframes heart-beat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            top: -10px;
+            z-index: 100;
+            animation: confetti-fall 4s linear forwards;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2.8rem;
+            }
+
+            .person-name {
+                font-size: 2.2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-wrapper {
+                height: 300px;
+            }
+
+            .wish-title {
+                font-size: 2rem;
+            }
+
+            .banner {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Sparkle Effect */
+        .sparkle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, white 0%, transparent 70%);
+            border-radius: 50%;
+            animation: sparkle-anim 1.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle-anim {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1 class="header-title">🌸 Chúc Mừng 8/3 🌸</h1>
+        <p class="header-subtitle">NGÀY QUỐC TẾ PHỤ NỮ</p>
+        <div class="flower-divider">💐 🌹 💕 🌺 💐</div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="main-card">
+            <!-- Banner -->
+            <div class="banner">
+                <h2 class="banner-title">Trân Trọng Gửi Đến</h2>
+                <!-- 👇 THAY TÊN Ở ĐÂY 👇 -->
+                <p class="person-name">Ngô Thị Thùy Dương</p>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <!-- Greeting Message -->
+                <div class="greeting-box">
+                    <p class="greeting-text">
+                        <!-- 👇 THAY LỜI CHÚC MỞ ĐẦU Ở ĐÂY 👇 -->
+                        Nhân ngày <span class="highlight">8/3</span>, xin gửi đến cậu những lời chúc tốt đẹp nhất. 
+                        Chúc cậu luôn <span class="highlight">xinh đẹp, hạnh phúc và thành công</span> trong cuộc sống. 
+                        Cảm ơn cậu vì đã từng là bạn cùng bàn với tớ, cho tớ chép btap... tớ vô cùng biết ơn!
+                    </p>
+                </div>
+
+                <!-- Photo Gallery -->
+                <div class="gallery-section">
+                    <h3 class="gallery-title">✨ Ảnh của cậu✨</h3>
+                    <div class="photo-grid">
+                        <!-- Photo 1 -->
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <!-- 👇 THAY LINK ẢNH 1 Ở ĐÂY 👇 -->
+                                <img src="duong1.jpg" alt="Ảnh 1">
+                            </div>
+                            <div class="photo-caption">
+                                <!-- 👇 THAY CHÚ THÍCH ẢNH 1 Ở ĐÂY 👇 -->
+                                <p class="caption-text">🌸 Rạng Rỡ</p>
+                            </div>
+                        </div>
+
+                        <!-- Photo 2 -->
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <!-- 👇 THAY LINK ẢNH 2 Ở ĐÂY 👇 -->
+                                <img src="duong2.jpg" alt="Ảnh 2">
+                            </div>
+                            <div class="photo-caption">
+                                <!-- 👇 THAY CHÚ THÍCH ẢNH 2 Ở ĐÂY 👇 -->
+                                <p class="caption-text">💕 Duyên Dáng</p>
+                            </div>
+                        </div>
+
+                        <!-- Photo 3 -->
+                        <div class="photo-card">
+                            <div class="photo-wrapper">
+                                <!-- 👇 THAY LINK ẢNH 3 Ở ĐÂY 👇 -->
+                                <img src="duong3.jpg" alt="Ảnh 3">
+                            </div>
+                            <div class="photo-caption">
+                                <!-- 👇 THAY CHÚ THÍCH ẢNH 3 Ở ĐÂY 👇 -->
+                                <p class="caption-text">✨ Tự Tin</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wish Section -->
+                <div class="wish-section">
+                    <div class="wish-flowers">🌹💝🌺🦋💐</div>
+                    <h3 class="wish-title">Lời Chúc Đặc Biệt</h3>
+                    <div class="wish-content">
+                        <!-- 👇 THAY LỜI CHÚC DÀI Ở ĐÂY 👇 -->
+                        <p>
+                            Chúc bạn một ngày 8/3 thật ý nghĩa và tràn ngập niềm vui!
+                        </p>
+                        <ul class="wish-list">
+                            <li><span class="wish-icon">🌸</span> Luôn xinh đẹp rạng ngời</li>
+                            <li><span class="wish-icon">💕</span> Cố gắng tăng cân, trông như sì ke</li>
+                            <li><span class="wish-icon">✨</span> Sớm có ny đi để bạn còn cbi quà cưới</li>
+                            <li><span class="wish-icon">🎯</span> Đạt được nhiều hbo</li>
+                            <li><span class="wish-icon">💖</span> Sớm ngày thành người cô đáng quý như thầy Q nhe</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Signature -->
+                <div class="signature-section">
+                    <!-- 👇 THAY TÊN NGƯỜI GỬI Ở ĐÂY 👇 -->
+                    <p class="signature-text">Thân ái,</p>
+                    <p class="signature-text">Đẹp trai nhất PTIT</p>
+                    <p class="signature-date">Ngày 8 tháng 3 năm 2025</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made by <span class="footer-heart">💕</span>zennii <span class="footer-heart">💕</span></p>
+        </footer>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            const hearts = ['💕', '💗', '💖', '💝', '🌹', '🌸', '🌺', '🦋'];
+            
+            for (let i = 0; i < 25; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+                heart.style.animationDuration = (10 + Math.random() * 10) + 's';
+                heart.style.fontSize = (15 + Math.random() * 15) + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        // Create confetti effect
+        function createConfetti() {
+            const shapes = ['🌸', '🌹', '💕', '✨', '🎉', '🦋', '💖'];
+            
+            for (let i = 0; i < 70; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.fontSize = (12 + Math.random() * 18) + 'px';
+                    confetti.style.animationDuration = (3 + Math.random() * 2) + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 40);
+            }
+        }
+
+        // Add sparkle effect on click
+        document.addEventListener('click', function(e) {
+            for (let i = 0; i < 5; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.textContent = '✨';
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = (e.clientX + (Math.random() - 0.5) * 50) + 'px';
+                sparkle.style.top = (e.clientY + (Math.random() - 0.5) * 50) + 'px';
+                sparkle.style.fontSize = (15 + Math.random() * 10) + 'px';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.zIndex = '1000';
+                sparkle.style.animation = 'confetti-fall 1s ease-out forwards';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        });
+
+        // Initialize
+        createFloatingHearts();
+        
+        // Auto confetti on page load
+        setTimeout(() => {
+            createConfetti();
+        }, 500);
+
+        // Console message
+        console.log('%c🌸 Chúc Mừng 8/3 🌸', 'font-size: 24px; color: #ff6b9d; font-weight: bold;');
+        console.log('%cNgày Quốc Tế Phụ Nữ', 'font-size: 16px; color: #c44569;');
+    </script>
+</body>
+</html>
+
