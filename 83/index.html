@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng 8/3 - Ngày Quốc Tế Phụ Nữ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-pink: #ff6b9d;
+            --soft-pink: #ffe5ec;
+            --deep-pink: #c44569;
+            --gold: #d4af37;
+            --cream: #fff9f0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #fff5f8 0%, #ffe5ec 50%, #ffd6e8 100%);
+            min-height: 100vh;
+        }
+
+        /* Floating Hearts Animation */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: var(--primary-pink);
+            animation: float-up 15s infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Index Page */
+        .index-page {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--deep-pink);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .input-group {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(255, 107, 157, 0.2);
+        }
+
+        .input-label {
+            display: block;
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .name-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            border: 2px solid var(--soft-pink);
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+        }
+
+        .name-input:focus {
+            border-color: var(--primary-pink);
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+        }
+
+        .submit-btn {
+            margin-top: 25px;
+            padding: 15px 50px;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--primary-pink), var(--deep-pink));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.5);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .error-message {
+            color: #e74c3c;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            display: none;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .loading-message {
+            color: var(--deep-pink);
+            margin-top: 15px;
+            font-size: 1rem;
+            display: none;
+        }
+
+        /* Password Page */
+        .password-page {
+            display: none;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .password-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(255, 107, 157, 0.2);
+        }
+
+        .welcome-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--deep-pink);
+            margin-bottom: 10px;
+        }
+
+        .user-display-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-pink);
+            margin-bottom: 20px;
+        }
+
+        .password-instruction {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: 2px solid var(--soft-pink);
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .password-input:focus {
+            border-color: var(--primary-pink);
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+        }
+
+        .password-submit-btn {
+            margin-top: 20px;
+            padding: 15px 50px;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--primary-pink), var(--deep-pink));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .password-submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.5);
+        }
+
+        .back-to-home-btn {
+            margin-top: 15px;
+            padding: 12px 40px;
+            font-size: 1rem;
+            background: transparent;
+            color: var(--deep-pink);
+            border: 2px solid var(--deep-pink);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+        }
+
+        .back-to-home-btn:hover {
+            background: var(--deep-pink);
+            color: white;
+        }
+
+        .flower-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            z-index: 100;
+            animation: confetti-fall 3s linear forwards;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            .input-group, .password-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <div class="container">
+        <!-- Index Page - Only Input -->
+        <div class="index-page" id="indexPage">
+            <h1 class="title">🌸Chúc Mừng 8/3🌸</h1>
+            <p class="subtitle">Ngày Quốc Tế Phụ Nữ</p>
+            
+            <div class="input-group">
+                <label class="input-label" for="nameInput">Nhập họ và tên của bạn:</label>
+                <input 
+                    type="text" 
+                    id="nameInput" 
+                    class="name-input" 
+                    placeholder="Ví dụ: Nguyễn Thị A"
+                    autocomplete="off"
+                >
+                <button class="submit-btn" onclick="submitName()">
+                    🔐 Nhập Mật Khẩu
+                </button>
+                <p class="error-message" id="errorMessage">
+                    ❌ Tên không có trong danh sách. Vui lòng kiểm tra lại!
+                </p>
+                <p class="loading-message" id="loadingMessage">
+                    ⏳ Đang xác thực...
+                </p>
+            </div>
+        </div>
+
+        <!-- Password Page -->
+        <div class="password-page" id="passwordPage">
+            <div class="password-card">
+                <div class="flower-icon">🌹🔐🌸</div>
+                <h2 class="welcome-text" id="welcomeText">Chào Mừng</h2>
+                <p class="user-display-name" id="userDisplayName"></p>
+                <p class="password-instruction">Vui lòng nhập mật khẩu để nhận lời chúc đặc biệt:</p>
+                <input 
+                    type="password" 
+                    id="passwordInput" 
+                    class="password-input" 
+                    placeholder="Nhập mật khẩu..."
+                    autocomplete="off"
+                >
+                <button class="password-submit-btn" onclick="submitPassword()">
+                    ✨ Mở Lời Chúc
+                </button>
+                <p class="error-message" id="passwordError">
+                    ❌ Mật khẩu không đúng. Vui lòng thử lại!
+                </p>
+                <button class="back-to-home-btn" onclick="goBackToHome()">
+                    🔄 Quay lại trang chính
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Database of names with folders and passwords
+        const nameDatabase = {
+            'nguyễn hải hà': {
+                displayName: 'Nguyễn Hải Hà',
+                folder: 'ha',
+                password: 'hatrieucoccan123'
+            },
+            'ngô thị thùy dương': {
+                displayName: 'Ngô Thị Thùy Dương',
+                folder: 'duong',
+                password: 'nhagiaonhandan'
+            },
+            'đỗ đan lê': {
+                displayName: 'Đỗ Đan Lê',
+                folder: 'le',
+                password: 'meomeomeo'
+            },
+            'trần thanh nhàn': {
+                displayName: 'Trần Thanh Nhàn',
+                folder: 'nhan',
+                password: 'nhandungquenae'
+            },
+            'nguyễn hoàng ngân': {
+                displayName: 'Nguyễn Hoàng Ngân',
+                folder: 'ngan',
+                password: 'ngansapconyghetvl'
+            }
+        };
+
+        // Current selected user
+        let currentUser = null;
+
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            const hearts = ['💕', '💗', '💕', '💝', '🌹', '🌺'];
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+                heart.style.animationDuration = (10 + Math.random() * 10) + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        // Create confetti effect
+        function createConfetti() {
+            const shapes = ['🌸', '🌹', '💕', '✨', '🎉'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.fontSize = (15 + Math.random() * 20) + 'px';
+                    confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 50);
+            }
+        }
+
+        // Submit name
+        function submitName() {
+            const nameInput = document.getElementById('nameInput');
+            const errorMessage = document.getElementById('errorMessage');
+            const loadingMessage = document.getElementById('loadingMessage');
+            const name = nameInput.value.trim().toLowerCase();
+
+            if (!name) {
+                errorMessage.textContent = '❌ Vui lòng nhập tên!';
+                errorMessage.style.display = 'block';
+                nameInput.style.borderColor = '#e74c3c';
+                setTimeout(() => {
+                    nameInput.style.borderColor = '';
+                }, 2000);
+                return;
+            }
+
+            if (nameDatabase[name]) {
+                errorMessage.style.display = 'none';
+                loadingMessage.style.display = 'block';
+                
+                // Simulate loading then navigate to password page
+                setTimeout(() => {
+                    loadingMessage.style.display = 'none';
+                    currentUser = nameDatabase[name];
+                    showPasswordPage();
+                }, 800);
+            } else {
+                errorMessage.textContent = '❌ Tên không có trong danh sách. Vui lòng kiểm tra lại!';
+                errorMessage.style.display = 'block';
+                nameInput.style.borderColor = '#e74c3c';
+                setTimeout(() => {
+                    nameInput.style.borderColor = '';
+                }, 2000);
+            }
+        }
+
+        // Show password page
+        function showPasswordPage() {
+            document.getElementById('indexPage').classList.add('hidden');
+            document.getElementById('passwordPage').style.display = 'block';
+            document.getElementById('userDisplayName').textContent = currentUser.displayName;
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('passwordError').style.display = 'none';
+            document.getElementById('passwordInput').focus();
+        }
+
+        // Submit password
+        function submitPassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            const passwordError = document.getElementById('passwordError');
+            const password = passwordInput.value.trim();
+
+            if (!password) {
+                passwordError.textContent = '❌ Vui lòng nhập mật khẩu!';
+                passwordError.style.display = 'block';
+                passwordInput.style.borderColor = '#e74c3c';
+                setTimeout(() => {
+                    passwordInput.style.borderColor = '';
+                }, 2000);
+                return;
+            }
+
+            if (password === currentUser.password) {
+                passwordError.style.display = 'none';
+                
+                // Create confetti celebration
+                createConfetti();
+                
+                // Redirect to main.html in user's folder
+                setTimeout(() => {
+                    window.location.href = currentUser.folder + '/main.html';
+                }, 1000);
+            } else {
+                passwordError.textContent = '❌ Mật khẩu không đúng. Vui lòng thử lại!';
+                passwordError.style.display = 'block';
+                passwordInput.style.borderColor = '#e74c3c';
+                passwordInput.value = '';
+                setTimeout(() => {
+                    passwordInput.style.borderColor = '';
+                }, 2000);
+            }
+        }
+
+        // Go back to home
+        function goBackToHome() {
+            currentUser = null;
+            document.getElementById('passwordPage').style.display = 'none';
+            document.getElementById('indexPage').classList.remove('hidden');
+            document.getElementById('nameInput').value = '';
+        }
+
+        // Handle Enter key for name input
+        document.getElementById('nameInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitName();
+            }
+        });
+
+        // Handle Enter key for password input
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitPassword();
+            }
+        });
+
+        // Initialize
+        createFloatingHearts();
+    </script>
+</body>
+</html>
+
